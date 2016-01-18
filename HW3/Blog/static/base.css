@@ -1,0 +1,76 @@
+<style type="text/css">
+
+body {
+    font-family: sans-serif; 
+    width: 90%; 
+    margin: 0 auto; 
+    padding: 10px;
+}
+.header {
+    width: 90%;
+    margin:0 auto;
+    text-align: center;
+    font-size: 30px;
+}
+.error {
+    color: red;
+}
+
+
+div#button-new {
+    display: block;
+    text-align: center;
+    margin: 30px, auto;
+}
+
+div.container-blog, div.footer{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 70px;   
+    text-align: center;
+}
+
+.footer> a{
+    margin: 0px auto;
+    text-align: center;
+    display: block;
+}
+
+.footer > ul{
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+.title{
+    font-weight: bold;
+    font-size: 20px;
+}
+.body {
+    font-size: 17px;
+    
+}
+
+.blue{
+    margin: 10px;
+    margin-left: 0px;
+    border-radius: 5%;
+    border: 0;
+    background-color: #EAF8EE;    
+}
+input[type=text] {
+    width: 300px; font-size: 15px; padding: 2px;
+}
+textarea {
+    width: 400px; height: 200px; font-size: 17px; font-family: monospace;
+}
+input[type=submit] {
+    font-size: 13px;
+}
+hr {
+    margin: 20px auto;
+    height: 2px;
+    border: 0;
+    background-color: #C5BBC6;
+}
+
+</style>

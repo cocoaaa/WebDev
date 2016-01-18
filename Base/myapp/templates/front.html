@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if arts %}
+        {% for a in arts %}
+           <hr>
+            <div>
+                <div class=art-title>{{a.title}}</div>
+                <pre class=art-body>{{a.art}}</pre>
+                <div class=art-date>{{a.created}}</div>
+            </div> 
+        {% endfor %}
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block front %}
+<ul>
+{% for p in posts %}
+    <li>
+    <div class=title>{{p.title}}</div>
+    <div class=body>{{p.body}}</div>
+    <hr>
+    </li>
+{% endfor}
+</ul>
+{% endblock front %}

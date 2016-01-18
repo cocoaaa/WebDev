@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Ascii</title>
+        <link rel="stylesheet" type="text/css" href="/static/base.css">
+    </head>
+    
+    
+    <body>
+       <div id="header">
+           <h1>Ascii Art!</h1>
+       </div>
+       
+       <div id="container-form">
+          <form method="post">
+            <label>
+            <div>Title:</div>
+            <input type="text" name="title" value="{{title}}"/><span class="error">{{error_title}}</span>
+            </label>
+            <br>
+            <label>
+            <div>Art:</div>
+            <textarea name="art">{{art}}</textarea><span class="error">{{error_art}}</span>
+            </label>
+            <br>
+            <input type=submit />
+          </form>
+        </div>
+
+        <div id="container-show">
+           {% block content %}
+           {% endblock content %}
+        </div>
+    </body>
+    
+    
+</html>
