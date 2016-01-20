@@ -20,10 +20,11 @@ body {
 div#button-new {
     display: block;
     text-align: center;
-    margin: 30px, auto;
+    margin-top: 20px;
+    margin-bottom: -50px;
 }
 
-div.container-blog, div.footer{
+div.container-post, div.footer{
     width: 80%;
     margin: 0 auto;
     margin-top: 70px;   
@@ -44,18 +45,37 @@ div.container-blog, div.footer{
 .title{
     font-weight: bold;
     font-size: 20px;
+    margin-bottom: 10px;
 }
 .body {
     font-size: 17px;
-    
 }
-
+.modified{
+    margin:0; 
+    text-align: right;
+}
+hr {
+    margin: 20px auto;
+    height: 2px;
+    border: 0;
+    background-color: #C5BBC6;
+}
+hr.above {
+    margin:0;
+}
+hr.bottom{
+    margin-top:0;
+    margin-bottom:50px;
+}
 .blue{
     margin: 10px;
     margin-left: 0px;
     border-radius: 5%;
     border: 0;
     background-color: #EAF8EE;    
+}
+.date {
+    font-size: 10px;
 }
 input[type=text] {
     width: 300px; font-size: 15px; padding: 2px;
@@ -65,12 +85,6 @@ textarea {
 }
 input[type=submit] {
     font-size: 13px;
-}
-hr {
-    margin: 20px auto;
-    height: 2px;
-    border: 0;
-    background-color: #C5BBC6;
 }
 
 </style>

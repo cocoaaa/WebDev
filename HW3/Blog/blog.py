@@ -3,7 +3,7 @@ import webapp2
 import jinja2
 import cgi
 
-import datetime
+from datetime import datetime
 from google.appengine.ext import db
 
 #Templates directory: relative to the directory this current python file is in.
@@ -14,10 +14,26 @@ jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
 def isValid(title, body):
     return (title and body and len(title)>0 and len(body)>0)
 
+def render_str(template, **params ):
+        t= jinja_env.get_template(template)
+        return t.render(params)
+
+def datetimeformat(dtObj, format='%Y-%m-%d %H:%M'):
+    return dtObj.strftime(format)
+
+jinja_env.filters['datetimeformat'] = datetimeformat
+
+
 class Posts(db.Model):
     title = db.StringProperty(required=True)
     body = db.TextProperty(required=True)
+#    body = body.replace('\n', '<br>')
     created = db.DateTimeProperty(auto_now_add=True)
+    last_modified = db.DateTimeProperty(auto_now=True)
+    
+    def render(self):
+        self._rendered_body = self.body.replace('\n', '<br>')
+        return render_str("post.html", p=self)
 
 
 class Handler(webapp2.RequestHandler):
@@ -25,14 +41,14 @@ class Handler(webapp2.RequestHandler):
         self.response.out.write(*a, **kw)
     
     def render_str(self, template, **params ):
-        t= jinja_env.get_template(template)
-        return t.render(params)
+        return render_str(template, **params)
+    
     def render(self, template, **params):
         self.response.out.write(self.render_str(template, **params))
         
 class MainPage(Handler):
     def get(self):
-        #show the 10 most recent posts
+        #show the 10 most recent post
         posts = db.GqlQuery("SELECT * FROM Posts ORDER BY created DESC")[:10]
         self.render("main.html", posts=posts)
         
@@ -49,6 +65,7 @@ class NewPostHandler(Handler):
             p.put() #Created an entry to the db
             #Get the key of the object just created
             pid = p.key().id()
+            print 'pid: ', pid
             #Redirect to the permalink
             newLink = cgi.escape("/view?pid="+str(pid),quote=True)
             print newLink
@@ -66,10 +83,14 @@ class RedirectHandler(Handler):
         pid = self.request.get("pid")
         #Load pid's post
         p = Posts.get_by_id(int(pid))
-        title = p.title
-        body = p.body
-        created = "Created at: " + p.created.strftime("%Y-%m-%d %H:%M")
-        self.render("confirm.html", title=title, body=body, created=created)
+        if p:
+            self.render("permalink.html", p=p)
+        else:
+            print '404 ERROR'
+            self.error(404)
+            return
+            
+#        self.render("confirm.html")
         
 app = webapp2.WSGIApplication([('/', MainPage),
                                ('/newpost', NewPostHandler),

@@ -4,13 +4,7 @@
 <div class="container-blog">
   
 {% for p in posts %}
-
-    <div class="title">{{p.title}}</div>
-    <div class="body, blue">{{p.body}}</div>
-    <div class="created">Created at: {{p.created}}</div>
-
-    <hr>
-
+   {{ p.render() | safe() }}
 {% endfor %}
    
 </div>

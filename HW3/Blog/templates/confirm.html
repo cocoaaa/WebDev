@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
-
-{% block content %}
-<div class="container-blog">
-    <div class="title">{{title}}</div>
-    <div class="body blue">{{body}}</div>  
-    <div class="created">{{created}}</div>
-</div>
-{% endblock content %}
+{% if p %}
+    {% block content %}
+    <div class="container-blog">
+        <div class="title">{{p.title}}</div>
+        <div class="body blue">{{p._rendered_body}}</div>  
+        <div class="created">{{p.created | datetimeformat()}}</div>
+            <div class="modified">{{p.last_modified | datetimeformat()}}</div>
+    </div>
+    {% endblock content %}
+{% endif %}

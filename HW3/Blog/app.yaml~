@@ -1,4 +1,5 @@
-version: 1
+application: winter-environs-118704
+version: latest
 runtime: python27
 api_version: 1
 threadsafe: true
@@ -7,7 +8,7 @@ handlers:
 - url: /static
   static_dir: static
 - url: /.*
-  script: myapp.app
+  script: blog.app
 
 libraries:
 - name: jinja2

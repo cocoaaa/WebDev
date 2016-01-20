@@ -1,0 +1,10 @@
+<div class="container-post">
+    <div class="date modified">Last modified: {{ p.last_modified | datetimeformat() }}</div>
+<hr class="above"></hr>
+    <div class="title">{{ p.title }}</div>
+    <div class="body blue">{{ p._rendered_body | safe() }}</div>  
+    <div class="date created">Created: {{ p.created | datetimeformat() }}</div>
+<hr class="bottom"></hr>
+
+    
+</div>
