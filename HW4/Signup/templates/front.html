@@ -8,15 +8,7 @@
                 <div class=art-title>{{a.title}}</div>
                 <pre class=art-body>{{a.art}}</pre>
                 <div class=art-date>{{a.created}}</div>
-            {% if a.mapURL %}
-                <div class='art-mapURL'>
-                    <img src="{{a.mapURL}}"/>
-                </div>
-            {% endif %}
             </div> 
-        
-        
         {% endfor %}
     {% endif %}
 {% endblock content %}
-

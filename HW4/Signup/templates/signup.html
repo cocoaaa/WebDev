@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form name="signup" method="post">
+    <b>Welcome! Please sign up below: </b>
+   <br>
+   <br>
+    <label>
+        Username:
+        <input type="text" name="username" value="{{username}}">
+        <span class="error">{{error_u_empty}}</span>
+            <span class="error">{{error_u_duplicate}}</span>
+    </label>
+    <br>
+    <br>
+    <label>
+        Password:
+        <input type="password" name="password" value="{{password}}">
+        <span class="error">{{error_p_empty}}</span>
+    </label>
+    <br>
+    <br>
+    <label>
+        Verify:
+        <input type="password" name="verify">
+    </label>
+        <span class="error">{{error_p_notmatch}}</span>
+    <br>
+    <br>
+    <label>
+        Email (optional):
+        <input type="text" name="email" value="{{email}}"> 
+        <span class="error">{{error_email}}</span>
+
+    </label>
+    <br>
+    <br>
+    <input type="submit">
+
+</form>
+
+{% endblock content %}

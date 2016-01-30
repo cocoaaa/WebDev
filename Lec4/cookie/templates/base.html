@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>HTTP cookie</title>
+        <link rel="stylesheet" type="text/css" href="/static/base.css">
+    </head>
+    
+    
+    <body>
+       <div id="header">
+           <h1>HTTP cookie!</h1>
+       </div>
+       
+       <div id="container-form">
+          <form method="post">
+            <label>
+            <div>Username:</div>
+            <input type="text" name="username" value="{{username}}"/>
+            </label>
+            <br>
+            <label>
+            <div>Password</div>
+            <input type="password" name="password" value="{{password}}"/>
+            </label>
+            <br>
+            <div class="error">{{error}}</div>
+            <br>
+            <input type=submit />
+          </form>
+        </div>
+
+        <div id="container-show">
+           {% block content %}
+           {% endblock content %}
+        </div>
+    </body>
+    
+    
+</html>

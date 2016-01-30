@@ -91,10 +91,32 @@ class RedirectHandler(Handler):
             return
             
 #        self.render("confirm.html")
-        
+
+class LoginHandler(Handler):
+    def get(self):
+        self.render("login.html")
+    def post(self):
+        username = self.request.get("username")
+        pw = self.request.get("pw")
+        error=""
+#        if username and valid_username(username) and pw and valid_pw(pw):
+        if username and pw:
+            print 'here'
+            self.redirect('/login/%s'%username)
+        else:
+            error="Both username and pw must be inserted and valid"
+            self.render('login.html', username=username, pw=pw, error=error)
+            
+class LoginSuccessHandler(Handler):
+    def get(self,username):
+        print 'here: ', username
+        print self.request
+        self.write("Welcome %s"%username)
 app = webapp2.WSGIApplication([('/', MainPage),
                                ('/newpost', NewPostHandler),
-                              ('/view', RedirectHandler)],
+                              ('/view', RedirectHandler),
+                              ('/login', LoginHandler),
+                              (r'/login/(.+)', LoginSuccessHandler)],
                              debug=True)
     
 #todo:

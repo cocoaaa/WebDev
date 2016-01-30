@@ -1,0 +1,9 @@
+application: rare-seeker-118517 
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /.*
+  script: hello_world.app
