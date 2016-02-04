@@ -1,36 +1,47 @@
-<html>
-    <head>
+<!DOCTYPE html>
+<html lang="en">
+    <head>       
         <title>Ascii</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/static/base.css">
     </head>
     
-    
     <body>
-       <div id="header">
-           <h1>Ascii Art!</h1>
-       </div>
-       
-       <div id="container-form">
-          <form method="post">
-            <label>
-            <div>Title:</div>
-            <input type="text" name="title" value="{{title}}"/><span class="error">{{error_title}}</span>
-            </label>
-            <br>
-            <label>
-            <div>Art:</div>
-            <textarea name="art">{{art}}</textarea><span class="error">{{error_art}}</span>
-            </label>
-            <br>
-            <input type=submit />
-          </form>
-        </div>
+        <div class="container-fluid" >
 
-        <div id="container-show">
-           {% block content %}
-           {% endblock content %}
+       <div class="header center">
+           <h1>Welcome to Ascii Art!</h1>
+       </div>
+        
+       <div class="row container-form center">
+           <div class="col-md-6">
+              <form method="post" class='border'>
+                <label>
+                <div>Title:</div>
+                <input type="text" name="title" value="{{title}}"/><span class="error">{{error_title}}</span>
+                </label>
+                <br>
+                <label>
+                <div>Art:</div>
+                <textarea name="art">{{art}}</textarea><span class="error">{{error_art}}</span>
+                </label>
+                <br>
+                <input type=submit />
+              </form>
+            </div>
+           
+           <div class="col-md-6">
+            {% block map %}
+            {% endblock map%}
+           </div>
+        </div>
+        
+        <hr>
+        <hr>
+        {% block content %}
+        {% endblock content %}
         </div>
     </body>
-    
-    
 </html>

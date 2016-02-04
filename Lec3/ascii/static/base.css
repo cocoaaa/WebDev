@@ -1,7 +1,14 @@
 <style type="text/css">
+
     body {
         font-family: sans-serif; width: 800px; margin: 0 auto; padding: 10px;
+        
     }
+
+.row {
+    width: 80%;
+    margin: 0, auto; 
+}
     .error {
         color: red;
     }
@@ -12,7 +19,7 @@
         width: 400px; font-size: 20px; padding: 2px;
     }
     textarea {
-        width: 400px; height: 200px; font-size: 17px; font-family: monospace;
+        width: 400px; height: 300px; font-size: 17px; font-family: monospace;
     }
     input[type=submit] {
         font-size: 24px;
@@ -30,4 +37,25 @@
     .art-body {
         margin: 0; font-size: 17px;
     }
+
+form.border{
+    display: inline-block;
+}
+div.header{
+    text-align: center;
+    }
+.container-map{
+    margin-left:10px;
+}
+
+/*
+.row.container-arts{
+    margin: 100px auto;}
+.row.container-form{
+    margin: 100px auto;
+}
+*/
+.center{
+    margin: 100px auto;
+}
 </style>
